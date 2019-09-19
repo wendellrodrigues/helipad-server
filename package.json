@@ -1,0 +1,19 @@
+{
+  "name": "helipad-server",
+  "version": "1.0.0",
+  "description": "Node Server for Helipad",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wendellrodrigues/helipad-server.git"
+  },
+  "author": "Wendell Rodrigues",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wendellrodrigues/helipad-server/issues"
+  },
+  "homepage": "https://github.com/wendellrodrigues/helipad-server#readme"
+}
