@@ -16,7 +16,7 @@ module.exports = {
       avgLandingTime: 0,
       parkedTime: 0,
       totalParkedTime: 0,
-      avgParkingTime: 0,
+      avgParkedTime: 0,
       numOfVisits: 0,
 
     },
@@ -28,7 +28,7 @@ module.exports = {
       avgLandingTime: 0,
       parkedTime: 0,
       totalParkedTime: 0,
-      avgParkingTime: 0,
+      avgParkedTime: 0,
       numOfVisits: 0,
     },
     thirdDrone = {
@@ -39,7 +39,7 @@ module.exports = {
       avgLandingTime: 0,
       parkedTime: 0,
       totalParkedTime: 0,
-      avgParkingTime: 0,
+      avgParkedTime: 0,
       numOfVisits: 0,
     },
   ],
@@ -69,49 +69,33 @@ module.exports = {
         drone.landingTime = landingTime;
         drone.totalLandingTime += landingTime;
         drone.avgLandingTime = (drone.totalLandingTime / drone.numOfVisits);
+        drone.parked = true;
 
         //Set the current state to the drone specified
         state.drone = drone;
 
-        //Call function that updates UI accordingly (pass drone obj)
-
       }
     } 
-
-    console.log("CURRENT STATE :", this.currentState);
-    
   },
 
   /**
    * Update full drone profile after (call alterDroneProfile)
    */
-  alterDroneParkedTime(id, landingTime) {
+  alterDroneParkedTime(id, parkedTime) {
 
     //Pointers to current state objects
     const list = this.droneList;
-    const state = this.currentState;
-
+    
     for(key in list) {
       const drone = list[key];
 
-
+      if(drone.id == id) {
+        drone.parkedTime = parkedTime;
+        drone.totalParkedTime += parkedTime;
+        drone.avgParkedTime = drone.totalParkedTime / drone.numOfVisits;
+        drone.parked = false;
+      }
     }
-    
-
-
   },
-
-
-
-
-  
-
-
-  /**
-   * Function that sends drone profile
-   */
-
-   //If landing time AND parking 
-
 
 }

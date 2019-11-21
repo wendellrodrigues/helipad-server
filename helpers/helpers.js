@@ -18,7 +18,6 @@ module.exports = {
   /**
    * Sends a test message
    * @param   req   The request
-   * @param   res   The response
    * 
    */
   getTimeToLand: async(req, res) => {
@@ -27,15 +26,11 @@ module.exports = {
 
     //The data sent by the arduino (regarding time to land)
     const id = req.body.id;
-    const timeToLand = req.body.timeToLand;
-
-    console.log(`ID:                    ${id}`);
-    console.log(`Time it took to land:  ${timeToLand}`);
+    let   timeToLand = req.body.timeToLand;
+          timeToLand = parseFloat(timeToLand); // Turn string into double
 
     users.alterDroneLandingTime(id, timeToLand);
 
-    res.status(200).json("Success");
-    
   },
 
   getParkedTime : async(req, res) => {
@@ -43,14 +38,14 @@ module.exports = {
     console.log('A drone has taken off');
 
     const id = req.body.id;
-    const parkedTime = req.body.parkedTime;
+    let   parkedTime = req.body.parkedTime;
+          parkedTime = parseFloat(parkedTime); // Turn string into double
 
-    console.log(`ID:                    ${id}`);
-    console.log(`Parked Time:           ${parkedTime}`);
+    users.alterDroneParkedTime(id, parkedTime);
 
-    res.status(200).json("Success");
+  },
 
-  }
+
 
 
 

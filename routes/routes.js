@@ -3,7 +3,6 @@ const router    = express.Router();
 const helpers   = require('../helpers/helpers');
 
 
-
 /**
  * Sends a test message
  * @route   /routes/test
